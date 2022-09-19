@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../res/resources.dart';
+
 class StadiumButton extends StatelessWidget {
   const StadiumButton({
     Key? key,
@@ -19,13 +21,13 @@ class StadiumButton extends StatelessWidget {
       child: InkWell(
         onTap: press,
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          padding: EdgeInsets.symmetric(vertical: Dimens.vGapDp16),
           alignment: Alignment.center,
           child: Text(
             text,
-            style: const TextStyle(
-              fontSize: 24.0,
-              color: Color(0xFFFFFFFF),
+            style: TextStyle(
+              fontSize: Dimens.fontSp24,
+              color: const Color(0xFFFFFFFF),
             ),
           ),
         ),

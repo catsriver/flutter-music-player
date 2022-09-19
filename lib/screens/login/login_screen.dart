@@ -1,6 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../res/resources.dart';
 import '../../widgets/common/stadium_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,48 +16,52 @@ class LoginScreen extends StatelessWidget {
           children: [
             // logo
             Container(
-              width: 450,
-              height: 450,
+              width: 450.w,
+              height: 450.w,
               clipBehavior: Clip.hardEdge,
               decoration: const BoxDecoration(
                 color: Colors.indigo,
                 gradient: RadialGradient(
-                  colors: [Color(0x0fffffff), Color(0xFFCCCCCC)],
-                  radius: 1 / 4,
-                  stops: [.99, .1],
+                  colors: [Colors.transparent, Colors.black12],
+                  radius: 108 / 450,
+                  stops: [.99, 1],
                   tileMode: TileMode.repeated,
                 ),
               ),
               alignment: Alignment.center,
               child: Image.asset(
                 'assets/images/logo.png',
-                width: 108,
-                height: 108,
+                width: 108.w,
+                height: 108.w,
               ),
             ),
 
             const Spacer(flex: 5),
 
             // 登陆按钮
-            StadiumButton(
-              text: '手机号登陆',
-              press: () {
-                print('手机号登陆');
-              },
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80.w),
+              child: StadiumButton(
+                text: '手机号登陆',
+                press: () {
+                  print('手机号登陆');
+                },
+              ),
             ),
 
             const Spacer(flex: 1),
 
             // 服务条款
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Checkbox(value: false, onChanged: (value) {}),
                 RichText(
                   text: TextSpan(
                     text: '我已阅读并同意',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Color(0xFFB2B2B2),
+                    style: TextStyle(
+                      fontSize: Dimens.fontSp18,
+                      color: const Color(0xFFB2B2B2),
                     ),
                     children: [
                       TextSpan(
@@ -114,11 +120,11 @@ class LoginScreen extends StatelessWidget {
             const Spacer(flex: 1),
 
             // 遇到问题
-            const Text(
+            Text(
               '登陆遇到问题',
               style: TextStyle(
-                fontSize: 18.0,
-                color: Color(0xFFB2B2B2),
+                fontSize: Dimens.fontSp18,
+                color: const Color(0xFFB2B2B2),
               ),
             ),
 
