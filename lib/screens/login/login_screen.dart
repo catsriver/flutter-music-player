@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../res/resources.dart';
 import '../../widgets/common/stadium_button.dart';
+import '../../widgets/common/third_party_login_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -136,31 +137,6 @@ class LoginScreen extends StatelessWidget {
 
             const Spacer(flex: 1),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ThirdPartyLoginButton extends StatelessWidget {
-  const ThirdPartyLoginButton({
-    Key? key,
-    required this.iconUrl,
-    required this.press,
-  }) : super(key: key);
-
-  final String iconUrl;
-  final VoidCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimens.hGapDp16),
-      child: InkWell(
-        onTap: press,
-        child: Image.asset(
-          iconUrl,
-          width: 50.w,
         ),
       ),
     );
