@@ -76,26 +76,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 RichText(
                   text: TextSpan(
                     text: '我已阅读并同意',
-                    style: TextStyle(
-                      fontSize: Dimens.fontSp18,
-                      color: const Color(0xFFB2B2B2),
-                    ),
+                    style: TextStyles.hintText,
                     children: [
                       TextSpan(
                         text: '《服务条款》',
-                        style: const TextStyle(color: Color(0xFF5D7CA3)),
+                        style: TextStyles.tipText,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             print('点击服务条款');
                           },
                       ),
-                      const TextSpan(
+                      TextSpan(
                         text: '、',
-                        style: TextStyle(color: Color(0xFF5D7CA3)),
+                        style: TextStyles.tipText,
                       ),
                       TextSpan(
                         text: '《隐私政策》',
-                        style: const TextStyle(color: Color(0xFF5D7CA3)),
+                        style: TextStyles.tipText,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             print('点击隐私政策');
@@ -156,10 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
             // 遇到问题
             Text(
               '登陆遇到问题',
-              style: TextStyle(
-                fontSize: Dimens.fontSp18,
-                color: const Color(0xFFB2B2B2),
-              ),
+              style: TextStyles.hintText,
             ),
 
             const Spacer(flex: 1),
@@ -186,32 +180,25 @@ class _LoginScreenState extends State<LoginScreen> {
             Gaps.vGap24,
             Text(
               '服务协议和隐私政策等指引',
-              style: TextStyle(
-                fontSize: Dimens.fontSp26,
-                color: const Color(0xFF333333),
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyles.bigTitle,
             ),
             Gaps.vGap24,
             RichText(
               text: TextSpan(
                 text: '进入下一步前，请阅读并同意网易云音乐的',
-                style: TextStyle(
-                  fontSize: Dimens.fontSp20,
-                  color: const Color(0xFFB2B2B2),
-                ),
-                children: const [
+                style: TextStyles.hintText,
+                children: [
                   TextSpan(
                     text: '《服务条款》',
-                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                    style: TextStyles.tipText,
                   ),
                   TextSpan(
                     text: '、',
-                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                    style: TextStyles.tipText,
                   ),
                   TextSpan(
                     text: '《隐私政策》',
-                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                    style: TextStyles.tipText,
                   ),
                 ],
               ),
