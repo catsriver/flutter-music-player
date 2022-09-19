@@ -6,8 +6,16 @@ import '../../res/resources.dart';
 import '../../widgets/common/stadium_button.dart';
 import '../../widgets/common/third_party_login_button.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  // 用户是否阅读并同意
+  bool isAgreed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +64,14 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Checkbox(value: false, onChanged: (value) {}),
+                Checkbox(
+                  value: isAgreed,
+                  onChanged: (value) {
+                    setState(() {
+                      isAgreed = value!;
+                    });
+                  },
+                ),
                 RichText(
                   text: TextSpan(
                     text: '我已阅读并同意',
