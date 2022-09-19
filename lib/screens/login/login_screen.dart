@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../res/resources.dart';
 import '../../widgets/common/stadium_button.dart';
@@ -133,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ThirdPartyLoginButton(
                   iconUrl: 'assets/images/netease.png',
                   press: () {
-                    print('网易邮箱登陆');
+                    context.goNamed('loginWithEmail');
                   },
                 ),
               ],

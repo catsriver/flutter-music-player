@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../screens/home/home_screen.dart';
 import '../screens/login/login_screen.dart';
+import '../screens/login/login_with_email_screen.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,
@@ -23,6 +24,16 @@ final router = GoRouter(
         key: state.pageKey,
         child: const LoginScreen(),
       ),
+      routes: [
+        GoRoute(
+          name: 'loginWithEmail',
+          path: 'email',
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            child: const LoginWithEmailScreen(),
+          ),
+        ),
+      ],
     ),
   ],
 );

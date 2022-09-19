@@ -7,7 +7,10 @@ class Dimens {
 
   // 水平间距
   static final double hGapDp16 = 16.w;
+  static final double hGapDp24 = 24.w;
 
   // 垂直间距
   static final double vGapDp16 = 16.h;
+  static final double vGapDp24 = 24.h;
+  static final double vGapDp60 = 60.h;
 }
