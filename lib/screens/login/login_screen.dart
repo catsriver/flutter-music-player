@@ -138,10 +138,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       context.goNamed('loginWithEmail');
                     } else {
                       final result = await _showBottomSheet(context);
-                      if (result) {
+                      if (result == true) {
                         // 用户选择了同意并继续
                         setState(() {
-                          isAgreed = result;
+                          isAgreed = result!;
                         });
                         context.goNamed('loginWithEmail');
                       }
@@ -169,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<bool> _showBottomSheet(BuildContext context) async {
+  Future<bool?> _showBottomSheet(BuildContext context) async {
     return await showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
