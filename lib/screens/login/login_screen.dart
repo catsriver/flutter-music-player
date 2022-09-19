@@ -136,6 +136,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   press: () {
                     if (isAgreed) {
                       context.goNamed('loginWithEmail');
+                    } else {
+                      _showBottomSheet(context);
                     }
                   },
                 ),
@@ -154,6 +156,79 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
             const Spacer(flex: 1),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> _showBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(Dimens.radiusDp24),
+      ),
+      builder: (_) => Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Dimens.hGapDp24 * 2,
+          vertical: Dimens.vGapDp24,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Gaps.vGap24,
+            Text(
+              '服务协议和隐私政策等指引',
+              style: TextStyle(
+                fontSize: Dimens.fontSp26,
+                color: const Color(0xFF333333),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Gaps.vGap24,
+            RichText(
+              text: TextSpan(
+                text: '进入下一步前，请阅读并同意网易云音乐的',
+                style: TextStyle(
+                  fontSize: Dimens.fontSp20,
+                  color: const Color(0xFFB2B2B2),
+                ),
+                children: const [
+                  TextSpan(
+                    text: '《服务条款》',
+                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                  ),
+                  TextSpan(
+                    text: '、',
+                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                  ),
+                  TextSpan(
+                    text: '《隐私政策》',
+                    style: TextStyle(color: Color(0xFF5D7CA3)),
+                  ),
+                ],
+              ),
+            ),
+            Gaps.vGap24,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: StadiumButton(
+                    text: '不同意',
+                    press: () {},
+                  ),
+                ),
+                Gaps.hGap14,
+                Flexible(
+                  child: StadiumButton(
+                    text: '同意并继续',
+                    press: () {},
+                  ),
+                ),
+              ],
+            ),
+            Gaps.vGap24,
           ],
         ),
       ),
