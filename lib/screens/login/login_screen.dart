@@ -223,6 +223,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Flexible(
                   child: StadiumButton(
                     text: '不同意',
+                    outline: true,
                     press: () => Navigator.of(context).pop(false),
                   ),
                 ),
