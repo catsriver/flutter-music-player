@@ -133,11 +133,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ThirdPartyLoginButton(
                   iconUrl: 'assets/images/netease.png',
-                  press: () {
+                  press: () async {
                     if (isAgreed) {
                       context.goNamed('loginWithEmail');
                     } else {
-                      _showBottomSheet(context);
+                      final result = await _showBottomSheet(context);
+                      if (result) {
+                        // 用户选择了同意并继续
+                        setState(() {
+                          isAgreed = result;
+                        });
+                        context.goNamed('loginWithEmail');
+                      }
                     }
                   },
                 ),
@@ -162,8 +169,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<dynamic> _showBottomSheet(BuildContext context) {
-    return showModalBottomSheet(
+  Future<bool> _showBottomSheet(BuildContext context) async {
+    return await showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Dimens.radiusDp24),
@@ -216,14 +223,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 Flexible(
                   child: StadiumButton(
                     text: '不同意',
-                    press: () {},
+                    press: () => Navigator.of(context).pop(false),
                   ),
                 ),
                 Gaps.hGap14,
                 Flexible(
                   child: StadiumButton(
                     text: '同意并继续',
-                    press: () {},
+                    press: () => Navigator.of(context).pop(true),
                   ),
                 ),
               ],
