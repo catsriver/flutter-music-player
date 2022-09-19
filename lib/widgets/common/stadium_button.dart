@@ -7,16 +7,20 @@ class StadiumButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.press,
+    this.outline = false,
   }) : super(key: key);
 
   final String text;
   final VoidCallback press;
+  final bool outline;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFFDC2E1E),
-      shape: const StadiumBorder(),
+      color: outline ? Colours.secondaryBg : Colours.brand,
+      shape: const StadiumBorder(
+        side: BorderSide(color: Colours.brand),
+      ),
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         onTap: press,
@@ -27,7 +31,7 @@ class StadiumButton extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: Dimens.fontSp24,
-              color: const Color(0xFFFFFFFF),
+              color: outline ? Colours.brand : Colours.textWhite,
             ),
           ),
         ),
