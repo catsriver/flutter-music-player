@@ -134,7 +134,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ThirdPartyLoginButton(
                   iconUrl: 'assets/images/netease.png',
                   press: () {
-                    context.goNamed('loginWithEmail');
+                    if (isAgreed) {
+                      context.goNamed('loginWithEmail');
+                    }
                   },
                 ),
               ],
