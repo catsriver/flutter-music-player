@@ -96,23 +96,29 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/wechat.png',
-                  ),
-                  onPressed: () {},
+                ThirdPartyLoginButton(
+                  iconUrl: 'assets/images/wechat.png',
+                  press: () {
+                    print('微信登陆');
+                  },
                 ),
-                IconButton(
-                  icon: Image.asset('assets/images/qq.png'),
-                  onPressed: () {},
+                ThirdPartyLoginButton(
+                  iconUrl: 'assets/images/qq.png',
+                  press: () {
+                    print('QQ登陆');
+                  },
                 ),
-                IconButton(
-                  icon: Image.asset('assets/images/weibo.png'),
-                  onPressed: () {},
+                ThirdPartyLoginButton(
+                  iconUrl: 'assets/images/weibo.png',
+                  press: () {
+                    print('微博登陆');
+                  },
                 ),
-                IconButton(
-                  icon: Image.asset('assets/images/netease.png'),
-                  onPressed: () {},
+                ThirdPartyLoginButton(
+                  iconUrl: 'assets/images/netease.png',
+                  press: () {
+                    print('网易邮箱登陆');
+                  },
                 ),
               ],
             ),
@@ -130,6 +136,31 @@ class LoginScreen extends StatelessWidget {
 
             const Spacer(flex: 1),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ThirdPartyLoginButton extends StatelessWidget {
+  const ThirdPartyLoginButton({
+    Key? key,
+    required this.iconUrl,
+    required this.press,
+  }) : super(key: key);
+
+  final String iconUrl;
+  final VoidCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: Dimens.hGapDp16),
+      child: InkWell(
+        onTap: press,
+        child: Image.asset(
+          iconUrl,
+          width: 50.w,
         ),
       ),
     );
