@@ -39,6 +39,8 @@ dependencies:
     go_router: ^4.5.0
     # 屏幕适配
     flutter_screenutil: ^5.5.4
+    # 状态管理
+    flutter_riverpod: ^1.0.4
 
 dev_dependencies:
     flutter_test:
