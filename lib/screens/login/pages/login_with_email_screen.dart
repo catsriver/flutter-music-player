@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../providers/login_info.dart';
 import '../../../res/resources.dart';
@@ -75,6 +76,10 @@ class _LoginWithEmailScreenState extends State<LoginWithEmailScreen> {
                 final token = response.data['token'];
 
                 loginInfo.login(token);
+
+                // 将token存储至本地
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setString('token', token);
               },
             ),
 

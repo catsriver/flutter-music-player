@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../providers/login_info.dart';
 import '../../res/resources.dart';
 import '../../widgets/common/stadium_button.dart';
 import '../../widgets/common/third_party_login_button.dart';
@@ -17,6 +19,12 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   // 用户是否阅读并同意
   bool isAgreed = false;
+
+  @override
+  void initState() {
+    _initToken();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +154,13 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _initToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token') ?? '';
+
+    loginInfo.login(token);
   }
 
   void _goToLoginPage(String routerName) async {
