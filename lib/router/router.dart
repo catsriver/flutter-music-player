@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../providers/login_info.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/login/login_screen.dart';
 import '../screens/login/pages/login_with_email_screen.dart';
@@ -9,6 +10,8 @@ import '../screens/login/pages/login_with_phone_screen.dart';
 final router = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: '/login',
+  refreshListenable: loginInfo,
+  redirect: _redirectLogic,
   routes: [
     GoRoute(
       name: 'home',
@@ -46,3 +49,16 @@ final router = GoRouter(
     ),
   ],
 );
+
+String? _redirectLogic(GoRouterState state) {
+  final loggingIn = state.location.startsWith('/login');
+  final loggedIn = loginInfo.loggedIn;
+
+  // 如果用户未登陆，则需要进行登陆
+  if (!loggedIn) return loggingIn ? null : '/login';
+
+  // 如果用户已经登陆，但处于登陆页面，则重定向到首页
+  if (loggingIn) return '/';
+
+  return null;
+}

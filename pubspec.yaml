@@ -41,6 +41,8 @@ dependencies:
     flutter_screenutil: ^5.5.4
     # 状态管理
     flutter_riverpod: ^1.0.4
+    # 网络请求
+    dio: ^4.0.6
 
 dev_dependencies:
     flutter_test:
