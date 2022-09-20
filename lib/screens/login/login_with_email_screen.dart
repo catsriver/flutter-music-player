@@ -24,11 +24,11 @@ class LoginWithEmailScreen extends StatelessWidget {
             Gaps.vGap24,
 
             // 邮箱
-            TextFormField(
-              decoration: const InputDecoration(
+            const TextField(
+              decoration: InputDecoration(
                 hintText: '请输入邮箱账号',
               ),
-              cursorColor: const Color(0xFFDC2E1E),
+              cursorColor: Colours.brand,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
             ),
@@ -36,11 +36,11 @@ class LoginWithEmailScreen extends StatelessWidget {
             Gaps.vGap24,
 
             // 密码
-            TextFormField(
-              decoration: const InputDecoration(
+            const TextField(
+              decoration: InputDecoration(
                 hintText: '请输入密码',
               ),
-              cursorColor: const Color(0xFFDC2E1E),
+              cursorColor: Colours.brand,
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.go,
             ),
@@ -61,10 +61,7 @@ class LoginWithEmailScreen extends StatelessWidget {
             TextButton(
               child: Text(
                 '重设密码',
-                style: TextStyle(
-                  color: const Color(0xFF5D7CA3),
-                  fontSize: Dimens.fontSp18,
-                ),
+                style: TextStyles.tipText,
               ),
               onPressed: () {
                 print('重设密码');

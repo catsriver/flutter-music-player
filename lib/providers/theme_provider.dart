@@ -19,10 +19,7 @@ class ThemeNotifier extends StateNotifier<ThemeData> {
       ),
       scaffoldBackgroundColor: Colours.secondaryBg,
       inputDecorationTheme: InputDecorationTheme(
-        hintStyle: TextStyle(
-          color: Colours.text_3,
-          fontSize: Dimens.fontSp24,
-        ),
+        hintStyle: TextStyles.hintText,
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(width: 2.h, color: Colours.divider),
         ),

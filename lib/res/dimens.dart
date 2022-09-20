@@ -4,6 +4,7 @@ class Dimens {
   // 字体大小
   static final double fontSp18 = 18.sp;
   static final double fontSp20 = 20.sp;
+  static final double fontSp22 = 22.sp;
   static final double fontSp24 = 24.sp;
   static final double fontSp26 = 26.sp;
 

@@ -12,10 +12,11 @@ class TextStyles {
 
   static TextStyle hintText = TextStyle(
     fontSize: Dimens.fontSp20,
-    color: Colours.text_2,
+    color: Colours.text_3,
   );
 
-  static TextStyle tipText = const TextStyle(
+  static TextStyle tipText = TextStyle(
+    fontSize: Dimens.fontSp20,
     color: Colours.textTips,
   );
 }
