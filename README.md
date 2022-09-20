@@ -2,9 +2,9 @@
 
 flutter music player application. (仿网易云音乐)
 
-## 移动端页面预览
 
-## 屏幕预览
+
+## 页面预览
 
 ### 登陆页
 
