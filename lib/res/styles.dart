@@ -10,6 +10,11 @@ class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle bigNormalTitle = TextStyle(
+    fontSize: Dimens.fontSp26,
+    color: Colours.textNormal,
+  );
+
   static TextStyle hintText = TextStyle(
     fontSize: Dimens.fontSp20,
     color: Colours.text_3,
@@ -18,5 +23,10 @@ class TextStyles {
   static TextStyle tipText = TextStyle(
     fontSize: Dimens.fontSp20,
     color: Colours.textTips,
+  );
+
+  static TextStyle inputText = TextStyle(
+    fontSize: Dimens.fontSp22,
+    color: Colours.textNormal,
   );
 }

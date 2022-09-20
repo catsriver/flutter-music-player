@@ -4,6 +4,7 @@ import './dimens.dart';
 
 class Gaps {
   // 垂直间隔
+  static final Widget vGap12 = SizedBox(height: Dimens.vGapDp24 / 2);
   static final Widget vGap24 = SizedBox(height: Dimens.vGapDp24);
   static final Widget vGap60 = SizedBox(height: Dimens.vGapDp60);
 
