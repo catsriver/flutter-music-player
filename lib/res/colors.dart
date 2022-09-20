@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Colours {
+  static const Color primary = Color(0xff1e80ff);
+
   static const Color brand = Color(0xfff53f3f);
 
   // 字体颜色
