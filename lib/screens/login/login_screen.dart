@@ -53,9 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(horizontal: 80.w),
               child: StadiumButton(
                 text: '手机号登陆',
-                press: () {
-                  print('手机号登陆');
-                },
+                press: () => _goToLoginPage('loginWithPhone'),
               ),
             ),
 
@@ -130,20 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ThirdPartyLoginButton(
                   iconUrl: 'assets/images/netease.png',
-                  press: () async {
-                    if (isAgreed) {
-                      context.goNamed('loginWithEmail');
-                    } else {
-                      final result = await _showBottomSheet(context);
-                      if (result == true) {
-                        // 用户选择了同意并继续
-                        setState(() {
-                          isAgreed = result!;
-                        });
-                        context.goNamed('loginWithEmail');
-                      }
-                    }
-                  },
+                  press: () => _goToLoginPage('loginWithEmail'),
                 ),
               ],
             ),
@@ -161,6 +146,21 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _goToLoginPage(String routerName) async {
+    if (isAgreed) {
+      context.goNamed(routerName);
+    } else {
+      final result = await _showBottomSheet(context);
+      if (result == true) {
+        // 用户选择了同意并继续
+        setState(() {
+          isAgreed = result!;
+        });
+        context.goNamed(routerName);
+      }
+    }
   }
 
   Future<bool?> _showBottomSheet(BuildContext context) async {
