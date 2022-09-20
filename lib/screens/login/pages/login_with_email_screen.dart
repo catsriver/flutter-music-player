@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player/widgets/common/stadium_button.dart';
 
-import '../../res/resources.dart';
+import '../../../res/resources.dart';
 
 class LoginWithEmailScreen extends StatelessWidget {
   const LoginWithEmailScreen({super.key});

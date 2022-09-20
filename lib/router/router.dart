@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../screens/home/home_screen.dart';
 import '../screens/login/login_screen.dart';
-import '../screens/login/login_with_email_screen.dart';
-import '../screens/login/login_with_phone_screen.dart';
+import '../screens/login/pages/login_with_email_screen.dart';
+import '../screens/login/pages/login_with_phone_screen.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,
