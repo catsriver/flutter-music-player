@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player/widgets/common/stadium_button.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../res/resources.dart';
 
@@ -26,20 +25,8 @@ class LoginWithEmailScreen extends StatelessWidget {
 
             // 邮箱
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: '请输入邮箱账号',
-                hintStyle: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: Dimens.fontSp24,
-                ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2.h, color: const Color(0xFFD9D9D9)),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2.h, color: const Color(0xFFD9D9D9)),
-                ),
               ),
               cursorColor: const Color(0xFFDC2E1E),
               keyboardType: TextInputType.emailAddress,
@@ -50,20 +37,8 @@ class LoginWithEmailScreen extends StatelessWidget {
 
             // 密码
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: '请输入密码',
-                hintStyle: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: Dimens.fontSp24,
-                ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2.h, color: const Color(0xFFD9D9D9)),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2.h, color: const Color(0xFFD9D9D9)),
-                ),
               ),
               cursorColor: const Color(0xFFDC2E1E),
               keyboardType: TextInputType.visiblePassword,
