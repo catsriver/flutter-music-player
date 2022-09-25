@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../providers/home/ball_menu_provider.dart';
 import '../../providers/home/banner_provider.dart';
 import '../../res/resources.dart';
 import '../../widgets/common/custom_app_bar.dart';
 import '../../widgets/common/search_box.dart';
-import 'widgets/block_banner.dart';
+import './widgets/block_banner.dart';
+import './widgets/block_ball_menu.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -20,6 +22,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   @override
   void initState() {
     _requetApi();
+    ref.read(ballMenuProvider.notifier).fetchAndSetMenus();
     super.initState();
   }
 
@@ -44,6 +47,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         children: const [
           // 轮播图
           BlockBanner(),
+
+          // 圆形图标入口列表
+          BlockBallMenu(),
         ],
       ),
     );
