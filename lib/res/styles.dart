@@ -33,4 +33,8 @@ class TextStyles {
   static TextStyle textSize14 = TextStyle(
     fontSize: Dimens.fontSp14,
   );
+
+  static TextStyle textSize16 = TextStyle(
+    fontSize: Dimens.fontSp16,
+  );
 }
