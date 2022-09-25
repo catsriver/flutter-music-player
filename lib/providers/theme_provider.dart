@@ -27,6 +27,18 @@ class ThemeNotifier extends StateNotifier<ThemeData> {
           borderSide: BorderSide(width: 2.h, color: Colours.divider),
         ),
       ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        elevation: 0,
+        backgroundColor: Colours.secondaryBg,
+        selectedItemColor: Colours.textBrand,
+        unselectedItemColor: Colours.text_3,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyles.textSize14,
+        unselectedLabelStyle: TextStyles.textSize14,
+      ),
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
     );
   }
 }

@@ -45,6 +45,8 @@ dependencies:
     dio: ^4.0.6
     # 本地存储
     shared_preferences: ^2.0.15
+    # icon
+    font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
     flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dimens {
   // 字体大小
+  static final double fontSp14 = 14.sp;
   static final double fontSp18 = 18.sp;
   static final double fontSp20 = 20.sp;
   static final double fontSp22 = 22.sp;

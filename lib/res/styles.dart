@@ -29,4 +29,8 @@ class TextStyles {
     fontSize: Dimens.fontSp22,
     color: Colours.textNormal,
   );
+
+  static TextStyle textSize14 = TextStyle(
+    fontSize: Dimens.fontSp14,
+  );
 }
