@@ -14,10 +14,10 @@ class ThemeNotifier extends StateNotifier<ThemeData> {
       ),
       appBarTheme: const AppBarTheme(
         elevation: 0,
-        backgroundColor: Colours.secondaryBg,
+        backgroundColor: Colours.mainBg,
         foregroundColor: Colours.textNormal,
       ),
-      scaffoldBackgroundColor: Colours.secondaryBg,
+      scaffoldBackgroundColor: Colours.mainBg,
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyles.hintText,
         enabledBorder: UnderlineInputBorder(

@@ -9,5 +9,6 @@ class Gaps {
   static final Widget vGap60 = SizedBox(height: Dimens.vGapDp60);
 
   // 水平间隔
+  static final Widget hGap6 = SizedBox(width: Dimens.hGapDp6);
   static final Widget hGap14 = SizedBox(width: Dimens.hGapDp14);
 }
