@@ -1,19 +1,28 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../providers/home/banner_provider.dart';
 import '../../res/resources.dart';
 import '../../widgets/common/custom_app_bar.dart';
 import '../../widgets/common/search_box.dart';
 import 'widgets/block_banner.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  ConsumerState<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _SearchScreenState extends ConsumerState<SearchScreen> {
+  @override
+  void initState() {
+    _requetApi();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,5 +47,21 @@ class _SearchScreenState extends State<SearchScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _requetApi() async {
+    const url = 'http://47.108.129.252:3000/homepage/block/page';
+
+    try {
+      final response = await Dio().get(url);
+      final blocks = (response.data as Map<String, dynamic>)['data']['blocks'];
+
+      // 初始化banners数据
+      ref
+          .read(bannerProvider.notifier)
+          .initState(blocks[0]['extInfo']['banners']);
+    } catch (err) {
+      rethrow;
+    }
   }
 }

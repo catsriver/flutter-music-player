@@ -12,7 +12,7 @@ class BannerModel {
   final String? bannerId;
   final String pic;
   final String typeTitle;
-  final String url;
+  final String? url;
   final String titleColor;
 
   Color get tagColor {
