@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../res/resources.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     Key? key,
-    required this.leading,
+    this.leading,
     required this.middle,
     required this.trailing,
   }) : super(key: key);
 
-  final Widget leading;
+  final Widget? leading;
   final Widget middle;
   final Widget trailing;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: SizedBox(
         height: kToolbarHeight,
@@ -25,7 +27,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Dimens.hGapDp24),
-              child: leading,
+              child: leading ??
+                  GestureDetector(
+                    onTap: () => print('bars'),
+                    child: const FaIcon(FontAwesomeIcons.bars),
+                  ),
             ),
             Expanded(
               child: middle,

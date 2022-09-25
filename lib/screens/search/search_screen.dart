@@ -11,10 +11,6 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        leading: GestureDetector(
-          onTap: () => print('bars'),
-          child: const FaIcon(FontAwesomeIcons.bars),
-        ),
         middle: GestureDetector(
           onTap: () => print('SearchBox'),
           child: const SearchBox(
