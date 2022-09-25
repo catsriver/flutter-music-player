@@ -1,44 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../res/resources.dart';
 import './banner_item.dart';
+import '../../../res/resources.dart';
+import '../../../providers/home/banner_provider.dart';
 
-class BlockBanner extends StatefulWidget {
+class BlockBanner extends ConsumerStatefulWidget {
   const BlockBanner({super.key});
 
   @override
-  State<BlockBanner> createState() => _BlockBannerState();
+  ConsumerState<BlockBanner> createState() => _BlockBannerState();
 }
 
-class _BlockBannerState extends State<BlockBanner> {
+class _BlockBannerState extends ConsumerState<BlockBanner> {
   int _currentIndex = 0;
   final CarouselController _controller = CarouselController();
 
-  final List<Map<String, String>> _banners = [
-    {
-      'pic':
-          'http://p1.music.126.net/BcZXvoTKen7fPMDXezzScQ==/109951167853780577.jpg',
-      'typeTitle': '新歌首发',
-      'titleColor': 'red',
-    },
-    {
-      'pic':
-          'http://iadmusicmat.music.126.net/e75cf5bed1174fc3b70848a880146ac5.jpg',
-      'typeTitle': '广告',
-      'titleColor': 'blue',
-    },
-    {
-      'pic':
-          'http://p1.music.126.net/RSVgc3DHmFAWo8aKg3cTJA==/109951167853769104.jpg',
-      'typeTitle': '新歌首发',
-      'titleColor': 'red',
-    }
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final banners = ref.watch(bannerProvider);
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: Dimens.hGapDp24),
       decoration: const BoxDecoration(
@@ -57,12 +40,12 @@ class _BlockBannerState extends State<BlockBanner> {
           alignment: Alignment.bottomCenter,
           children: [
             CarouselSlider(
-              items: _banners
-                  .map((item) => BannerItem(
-                        picUrl: item['pic']!,
-                        tag: item['typeTitle']!,
-                        color: Colors.indigo,
-                        press: () => print(item['pic']!),
+              items: banners
+                  .map((banner) => BannerItem(
+                        picUrl: banner.pic,
+                        tag: banner.typeTitle,
+                        color: banner.tagColor,
+                        press: () => print(banner.url),
                       ))
                   .toList(),
               carouselController: _controller,
@@ -83,7 +66,7 @@ class _BlockBannerState extends State<BlockBanner> {
               bottom: 9.h,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: _banners
+                  children: banners
                       .asMap()
                       .entries
                       .map((entry) => GestureDetector(
