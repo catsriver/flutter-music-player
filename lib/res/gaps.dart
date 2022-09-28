@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import './dimens.dart';
+import './colors.dart';
 
 class Gaps {
   // 垂直间隔
@@ -12,4 +14,11 @@ class Gaps {
   // 水平间隔
   static final Widget hGap6 = SizedBox(width: Dimens.hGapDp6);
   static final Widget hGap14 = SizedBox(width: Dimens.hGapDp14);
+  static final Widget hGap66 = SizedBox(width: Dimens.hGapDp66);
+
+  // 分割线
+  static final Widget line = Divider(
+    height: 1.h,
+    color: Colours.divider,
+  );
 }

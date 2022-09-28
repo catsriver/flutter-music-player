@@ -10,6 +10,7 @@ import '../../widgets/common/custom_app_bar.dart';
 import '../../widgets/common/search_box.dart';
 import './widgets/block_banner.dart';
 import './widgets/block_ball_menu.dart';
+import './widgets/block_playlist_rcmd.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -44,12 +45,18 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       ),
       body: ListView(
         padding: EdgeInsets.only(top: Dimens.vGapDp24),
-        children: const [
+        children: [
           // 轮播图
-          BlockBanner(),
+          const BlockBanner(),
 
           // 圆形图标入口列表
-          BlockBallMenu(),
+          const BlockBallMenu(),
+
+          // 分割线
+          Gaps.line,
+
+          // 推荐歌单
+          const BlockPlaylistRcmd()
         ],
       ),
     );

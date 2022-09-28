@@ -16,6 +16,7 @@ class Dimens {
   static final double hGapDp14 = 14.w;
   static final double hGapDp16 = 16.w;
   static final double hGapDp24 = 24.w;
+  static final double hGapDp66 = 66.w;
 
   // 垂直间距
   static final double vGapDp6 = 6.h;

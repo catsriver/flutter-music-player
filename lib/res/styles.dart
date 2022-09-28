@@ -20,6 +20,11 @@ class TextStyles {
     color: Colours.text_3,
   );
 
+  static TextStyle actionText = TextStyle(
+    fontSize: Dimens.fontSp20,
+    color: Colours.textNormal,
+  );
+
   static TextStyle tipText = TextStyle(
     fontSize: Dimens.fontSp20,
     color: Colours.textTips,

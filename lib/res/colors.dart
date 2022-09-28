@@ -20,4 +20,7 @@ class Colours {
 
   // 分割线
   static const Color divider = Color(0xffe5e6eb);
+
+  // border
+  static const Color border = Color(0xffe6e6e6);
 }
