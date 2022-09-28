@@ -15,6 +15,11 @@ class TextStyles {
     color: Colours.textNormal,
   );
 
+  static TextStyle middleTitle = TextStyle(
+    fontSize: Dimens.fontSp18,
+    color: Colours.textNormal,
+  );
+
   static TextStyle hintText = TextStyle(
     fontSize: Dimens.fontSp20,
     color: Colours.text_3,
