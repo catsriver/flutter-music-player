@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../widgets/common/block_container.dart';
+import '../../../widgets/common/horizontal_scroll_view.dart';
 
 class BlockPlaylistRcmd extends StatelessWidget {
   const BlockPlaylistRcmd({
@@ -18,9 +19,15 @@ class BlockPlaylistRcmd extends StatelessWidget {
       onActionPress: () {
         print('action typed');
       },
-      child: Container(
-        height: 300,
-        color: Colors.indigo,
+      child: HorizontalScrollView(
+        children: List.generate(
+          10,
+          (index) => Container(
+            width: 100,
+            height: 100,
+            color: Colors.primaries[index],
+          ),
+        ),
       ),
     );
   }
